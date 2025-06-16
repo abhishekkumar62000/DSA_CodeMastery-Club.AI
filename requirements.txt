@@ -1,5 +1,6 @@
 streamlit
 dotenv
+streamlit_autorefresh
 matplotlib
 plotly
 google-generativeai
