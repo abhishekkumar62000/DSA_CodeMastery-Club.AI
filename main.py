@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import streamlit as st
 import json
 import random
@@ -9,6 +12,7 @@ import hashlib
 from datetime import date, datetime, timedelta
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+from streamlit_autorefresh import st_autorefresh # type: ignore
 
 st.set_page_config(page_title="DSA_CodeMastery Club", page_icon="\U0001F916", layout="wide")
 # --- Enhanced, Unique, Animated Dark Gradient Background with Floating Blobs ---
@@ -161,7 +165,6 @@ st.markdown('''
         border: none;
         border-radius: 10px;
         font-weight: 700;
-        font-size: 1.1em;
         box-shadow: 0 2px 12px #8f5cff33;
         transition: transform 0.1s, box-shadow 0.1s;
         animation: gradientMove 6s ease-in-out infinite;
@@ -453,6 +456,7 @@ def send_email_alert(subject, message, to_email=None):
 def quiz_interface(topic, questions):
     st.subheader(f"\U0001F9E0 Quiz on {topic}")
 
+    import time
     if 'quiz_index' not in st.session_state or st.session_state.get("quiz_topic") != topic:
         st.session_state.quiz_index = 0
         st.session_state.quiz_topic = topic
@@ -461,6 +465,7 @@ def quiz_interface(topic, questions):
         st.session_state.selected_option = None
         st.session_state.correct_count = 0
         st.session_state.show_hint = False
+        st.session_state.timer_start = None
 
     idx = st.session_state.quiz_index
     if idx >= len(st.session_state.shuffled_questions):
@@ -473,10 +478,25 @@ def quiz_interface(topic, questions):
 
     st.markdown(f"**Question {idx + 1}:** {q['question']}")
 
+    # Timer logic (no rerun, no lag)
+    if f'timer_start_{idx}' not in st.session_state or st.session_state.quiz_submitted:
+        st.session_state[f'timer_start_{idx}'] = time.time()
+    elapsed = int(time.time() - st.session_state[f'timer_start_{idx}'])
+    time_left = max(0, 30 - elapsed)
+
+    # Visual timer (progress bar and color)
+    progress = (30 - time_left) / 30
+    bar_color = "#4CAF50" if time_left > 10 else ("#FFC107" if time_left > 5 else "#F44336")
+    st.markdown(f"<div style='font-size:22px; color:{bar_color}; font-weight:bold;'>⏰ Time Left: {time_left} sec</div>", unsafe_allow_html=True)
+    st.progress(1 - progress)
+
+    if time_left == 0 and not st.session_state.quiz_submitted:
+        st.session_state.quiz_submitted = True
+        st.warning("⏰ Time's up! Moving to explanation.")
+
     if not st.session_state.show_hint:
         if st.button("\U0001F4A1 Show Hint"):
             st.session_state.show_hint = True
-            st.rerun()
     else:
         st.info(f"\U0001F4A1 **Hint:** {q['hint']}")
 
@@ -507,6 +527,7 @@ def quiz_interface(topic, questions):
             st.session_state.quiz_submitted = False
             st.session_state.selected_option = None
             st.session_state.show_hint = False
+            st.session_state.pop(f'timer_start_{idx}', None)
             st.rerun()
 
 def show_progress():
@@ -1073,31 +1094,208 @@ def show_recommendations_section():
             q = random.choice(data[topic])
             st.markdown(f'> _Sample Question_: {q["question"]}')
 
+def get_gemini_model():
+    import google.generativeai as genai
+    import os
+    api_key = os.environ.get('GEMINI_API_KEY', None)
+    if not api_key:
+        return None, 'Set your Gemini API key in the environment variable GEMINI_API_KEY.'
+    genai.configure(api_key=api_key)
+    try:
+        models = [m for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+        if not models:
+            return None, 'No Gemini models available for content generation.'
+        # Prefer gemini-1.5-flash, then gemini-1.5-pro
+        for m in models:
+            if 'gemini-1.5-flash' in m.name:
+                return genai.GenerativeModel(m.name), None
+        for m in models:
+            if 'gemini-1.5-pro' in m.name:
+                return genai.GenerativeModel(m.name), None
+        # Fallback to first available
+        return genai.GenerativeModel(models[0].name), None
+    except Exception as e:
+        return None, f'Error listing Gemini models: {e}'
+
 def show_code_playground():
+    import time
+    import sys
+    import io
+    import traceback
+    import os
+    import google.generativeai as genai
     st.subheader('💻 Live Coding Playground')
-    st.write('Write and test your Python code for DSA problems below!')
-    code = st.text_area('Your Code', height=200, key='code_playground')
-    sample_input = st.text_area('Sample Input (optional)', key='sample_input')
-    run_btn = st.button('Run Code')
+    st.write('Select a language, generate a DSA question, and code live!')
+
+    # --- Language selection ---
+    lang = st.selectbox('Language', ['Python', 'C++', 'Java'], key='playground_lang')
+
+    # --- DSA Question Generation ---
+    st.markdown('---')
+    st.markdown('### 🧠 AI-Generated DSA Coding Question')
+    difficulty = st.selectbox('Select Difficulty', ['Easy', 'Medium', 'Hard'], key='dsa_difficulty')
+
+    # Track questions per difficulty
+    if 'dsa_questions' not in st.session_state:
+        st.session_state['dsa_questions'] = {'Easy': [], 'Medium': [], 'Hard': []}
+    if 'dsa_q_idx' not in st.session_state:
+        st.session_state['dsa_q_idx'] = {'Easy': 0, 'Medium': 0, 'Hard': 0}
+    if 'dsa_nav_action' not in st.session_state:
+        st.session_state['dsa_nav_action'] = None
+
+    # Button logic
+    col1, col2, col3 = st.columns([1,2,1])
+    with col1:
+        prev_btn = st.button('⬅️ Previous Question', key='prev_q')
+    with col2:
+        gen_btn = st.button('Generate DSA Question', key='gen_q')
+    with col3:
+        next_btn = st.button('Next Question', key='next_q')
+
+    # Handle navigation actions
+    if prev_btn:
+        if st.session_state['dsa_q_idx'][difficulty] > 0:
+            st.session_state['dsa_q_idx'][difficulty] -= 1
+        st.session_state['dsa_nav_action'] = 'prev'
+        st.rerun()
+    if gen_btn:
+        st.session_state['dsa_nav_action'] = 'gen'
+        st.rerun()
+    if next_btn:
+        st.session_state['dsa_nav_action'] = 'next'
+        st.rerun()
+
+    # Perform the action after rerun
+    if st.session_state['dsa_nav_action'] == 'gen' or st.session_state['dsa_nav_action'] == 'next':
+        prompt = f"Generate a {difficulty} level DSA coding question. Only give the question statement, not the solution."
+        model, err = get_gemini_model()
+        if err:
+            st.session_state['dsa_questions'][difficulty].append(err)
+        else:
+            try:
+                response = model.generate_content(prompt)
+                st.session_state['dsa_questions'][difficulty].append(response.text.strip())
+            except Exception as e:
+                st.session_state['dsa_questions'][difficulty].append(f'Error generating question: {e}')
+        st.session_state['dsa_q_idx'][difficulty] = len(st.session_state['dsa_questions'][difficulty]) - 1
+        st.session_state['dsa_nav_action'] = None
+        st.rerun()
+    elif st.session_state['dsa_nav_action'] == 'prev':
+        st.session_state['dsa_nav_action'] = None
+
+    # Show current question
+    def show_current_question():
+        questions = st.session_state['dsa_questions'][difficulty]
+        idx = st.session_state['dsa_q_idx'][difficulty]
+        if questions and 0 <= idx < len(questions):
+            st.info(questions[idx])
+        else:
+            st.info('No question generated yet. Click Generate DSA Question or Next!')
+    show_current_question()
+
+    # --- Predefined templates (Python only) ---
+    templates = {
+        'Empty': '',
+        'Binary Search': 'def binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n\narr = [1,2,3,4,5]\nprint(binary_search(arr, 3))',
+        'Bubble Sort': 'def bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr\n\narr = [5, 1, 4, 2, 8]\nprint(bubble_sort(arr))',
+    }
+    template_choice = st.selectbox('Insert Template', list(templates.keys()), key='playground_template')
+    if st.button('Load Template'):
+        st.session_state['code_playground'] = templates[template_choice]
+
+    # --- Code editor ---
+    code = st.text_area('Your Code', value=st.session_state.get('code_playground', ''), height=250, key='code_playground', help=f'Write your {lang} code here.')
+    sample_input = st.text_area('Sample Input (optional)', key='sample_input', help='Provide input for your code (if needed).')
+
+    # --- Output Tabs ---
+    tab1, tab2, tab3 = st.tabs(["Output", "Error Traceback", "AI Suggestion"])
+    run_btn = st.button('▶️ Run Code')
+    clear_btn = st.button('🧹 Clear Output')
+
+    if clear_btn:
+        st.session_state['playground_output'] = ''
+        st.session_state['playground_error'] = ''
+        st.session_state['playground_ai_suggestion'] = ''
+        st.experimental_rerun()
+
     if run_btn:
-        import sys
-        import io
-        old_stdout = sys.stdout
-        redirected_output = sys.stdout = io.StringIO()
-        try:
-            # Prepare input if provided
-            if sample_input.strip():
-                sys.stdin = io.StringIO(sample_input)
-            exec(code, {})
-            sys.stdout = old_stdout
-            output = redirected_output.getvalue()
-            st.success('Output:')
-            st.code(output)
-        except Exception as e:
-            sys.stdout = old_stdout
-            st.error(f'Error: {e}')
-        finally:
-            sys.stdout = old_stdout
-            sys.stdin = sys.__stdin__
+        st.session_state['playground_ai_suggestion'] = ''
+        if lang == 'Python':
+            old_stdout = sys.stdout
+            old_stderr = sys.stderr
+            redirected_output = sys.stdout = io.StringIO()
+            redirected_error = sys.stderr = io.StringIO()
+            start_time = time.time()
+            try:
+                if sample_input.strip():
+                    sys.stdin = io.StringIO(sample_input)
+                exec(code, {})
+                sys.stdout = old_stdout
+                sys.stderr = old_stderr
+                output = redirected_output.getvalue()
+                st.session_state['playground_output'] = output
+                st.session_state['playground_error'] = ''
+                st.session_state['playground_time'] = f"Execution Time: {time.time() - start_time:.3f} sec"
+                if not output.strip():
+                    raise Exception('No output produced.')
+            except Exception as e:
+                sys.stdout = old_stdout
+                sys.stderr = old_stderr
+                st.session_state['playground_output'] = ''
+                st.session_state['playground_error'] = traceback.format_exc()
+                st.session_state['playground_time'] = ''
+                # --- AI Suggestion if code is wrong ---
+                model, err = get_gemini_model()
+                if err:
+                    st.session_state['playground_ai_suggestion'] = err
+                else:
+                    try:
+                        ai_prompt = f"The user tried to solve this DSA problem: {st.session_state.get('dsa_question', '')}\nTheir code (in Python):\n{code}\nError/Output:\n{st.session_state['playground_error']}\n\nSuggest the correct code and give a helpful hint."
+                        ai_response = model.generate_content(ai_prompt)
+                        st.session_state['playground_ai_suggestion'] = ai_response.text.strip()
+                    except Exception as e2:
+                        st.session_state['playground_ai_suggestion'] = f'Error with AI suggestion: {e2}'
+            finally:
+                sys.stdout = old_stdout
+                sys.stderr = old_stderr
+                sys.stdin = sys.__stdin__
+        else:
+            st.session_state['playground_output'] = 'Code execution is only supported for Python.'
+            st.session_state['playground_error'] = ''
+            st.session_state['playground_time'] = ''
+            # AI suggestion for other languages (optional)
+
+    with tab1:
+        st.markdown('**Output:**')
+        st.code(st.session_state.get('playground_output', ''), language=lang.lower())
+        if st.session_state.get('playground_time'):
+            st.info(st.session_state['playground_time'])
+        if st.session_state.get('playground_output', ''):
+            st.button('📋 Copy Output', on_click=lambda: st.write('Copy feature coming soon!'))
+    with tab2:
+        if st.session_state.get('playground_error', ''):
+            with st.expander('Show Error Traceback'):
+                st.error(st.session_state['playground_error'])
+    with tab3:
+        if st.session_state.get('playground_ai_suggestion', ''):
+            st.markdown('**AI Suggestion & Correct Code:**')
+            st.info(st.session_state['playground_ai_suggestion'])
+
+    # --- Save/Load Snippet ---
+    st.markdown('---')
+    st.markdown('💾 **Save your code snippet**')
+    snippet_name = st.text_input('Snippet Name', key='snippet_name')
+    if st.button('Save Snippet'):
+        if snippet_name.strip():
+            if 'saved_snippets' not in st.session_state:
+                st.session_state['saved_snippets'] = {}
+            st.session_state['saved_snippets'][snippet_name] = code
+            st.success(f'Snippet "{snippet_name}" saved!')
+    if st.session_state.get('saved_snippets'):
+        st.markdown('**Load a saved snippet:**')
+        snippet_to_load = st.selectbox('Select snippet', list(st.session_state['saved_snippets'].keys()), key='snippet_to_load')
+        if st.button('Load Snippet'):
+            st.session_state['code_playground'] = st.session_state['saved_snippets'][snippet_to_load]
+            st.experimental_rerun()
 if __name__ == "__main__":
     main()
