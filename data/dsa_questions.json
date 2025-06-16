@@ -1,0 +1,1283 @@
+{
+    "Arrays": [
+      {
+        "question": "What is the time complexity of accessing an element in an array by index?",
+        "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+        "answer": "O(1)",
+        "hint": "Think about how arrays use continuous memory.",
+        "explanation": "Array elements can be accessed in O(1) time because their memory addresses can be calculated directly using the index."
+      },
+      {
+        "question": "Which algorithm is best for finding the maximum subarray sum?",
+        "options": ["Kadane's Algorithm", "Binary Search", "Merge Sort", "DFS"],
+        "answer": "Kadane's Algorithm",
+        "hint": "It's a dynamic programming technique used on arrays.",
+        "explanation": "Kadane's Algorithm efficiently finds the subarray with the maximum sum in O(n) time by tracking the maximum subarray ending at each index."
+      },
+      {
+        "question": "What is the space complexity of the Merge Sort algorithm?",
+        "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+        "answer": "O(n)",
+        "hint": "It uses additional memory to merge arrays.",
+        "explanation": "Merge Sort uses O(n) additional space for temporary arrays during the merge process."
+      },
+      {
+        "question": "Which sorting algorithm is stable?",
+        "options": ["Quick Sort", "Merge Sort", "Heap Sort", "Selection Sort"],
+        "answer": "Merge Sort",
+        "hint": "It maintains the order of equal elements.",
+        "explanation": "Merge Sort is stable as it doesn’t change the order of equal elements during merging."
+      },
+      {
+        "question": "How do you remove duplicates from a sorted array in-place?",
+        "options": ["Two-pointer approach", "Stack", "Binary Search", "DFS"],
+        "answer": "Two-pointer approach",
+        "hint": "Use one pointer to write and one to read.",
+        "explanation": "The two-pointer technique allows in-place duplicate removal by overwriting repeated values while iterating."
+      },
+      {
+        "question": "What is the time complexity of reversing an array in-place?",
+        "options": ["O(n)", "O(1)", "O(n^2)", "O(log n)"],
+        "answer": "O(n)",
+        "hint": "You need to visit each element.",
+        "explanation": "Reversing an array in-place requires swapping each element, so it takes O(n) time."
+      },
+      {
+        "question": "Which method is used to find the intersection of two sorted arrays efficiently?",
+        "options": ["Two-pointer technique", "Stack", "Binary Search", "DFS"],
+        "answer": "Two-pointer technique",
+        "hint": "Move pointers in both arrays.",
+        "explanation": "The two-pointer technique allows efficient intersection by traversing both arrays simultaneously."
+      },
+      {
+        "question": "What is the best way to rotate an array by k positions?",
+        "options": ["Reverse method", "Bubble sort", "Selection sort", "Heapify"],
+        "answer": "Reverse method",
+        "hint": "Reverse parts of the array.",
+        "explanation": "The reverse method rotates an array in O(n) time by reversing parts and then the whole array."
+      },
+      {
+        "question": "Which algorithm is used for finding the majority element in an array?",
+        "options": ["Boyer-Moore Voting", "DFS", "Merge Sort", "Heap Sort"],
+        "answer": "Boyer-Moore Voting",
+        "hint": "It uses a counter.",
+        "explanation": "Boyer-Moore Voting algorithm finds the majority element in O(n) time and O(1) space."
+      },
+      {
+        "question": "What is the time complexity of finding the minimum element in an unsorted array?",
+        "options": ["O(n)", "O(1)", "O(log n)", "O(n log n)"],
+        "answer": "O(n)",
+        "hint": "You must check every element.",
+        "explanation": "Finding the minimum in an unsorted array requires checking all elements, so O(n) time."
+      },
+      {
+        "question": "Which data structure is best for dynamic array resizing?",
+        "options": ["ArrayList", "Stack", "Queue", "Tree"],
+        "answer": "ArrayList",
+        "hint": "Think about automatic resizing.",
+        "explanation": "ArrayList (or vector) resizes dynamically, unlike static arrays."
+      },
+      {
+        "question": "How do you check if an array contains a duplicate?",
+        "options": ["HashSet", "Stack", "Queue", "DFS"],
+        "answer": "HashSet",
+        "hint": "Store seen elements.",
+        "explanation": "Using a HashSet allows O(n) duplicate detection by storing seen elements."
+      },
+      {
+        "question": "What is the output of merging two sorted arrays?",
+        "options": ["Sorted array", "Unsorted array", "Stack", "Queue"],
+        "answer": "Sorted array",
+        "hint": "Order is maintained.",
+        "explanation": "Merging two sorted arrays results in a single sorted array."
+      },
+      {
+        "question": "Which algorithm is used for searching in a sorted array?",
+        "options": ["Binary Search", "Linear Search", "DFS", "BFS"],
+        "answer": "Binary Search",
+        "hint": "Divide and conquer.",
+        "explanation": "Binary Search finds elements in O(log n) time in sorted arrays."
+      },
+      {
+        "question": "What is the time complexity of removing an element from the end of an array?",
+        "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+        "answer": "O(1)",
+        "hint": "No shifting needed.",
+        "explanation": "Removing from the end is O(1) as no elements need to be shifted."
+      },
+      {
+        "question": "How do you find the second largest element in an array?",
+        "options": ["Single pass with two variables", "Sort and pick second", "Stack", "Queue"],
+        "answer": "Single pass with two variables",
+        "hint": "Track largest and second largest.",
+        "explanation": "Tracking two variables in a single pass gives O(n) time for second largest."
+      },
+      {
+        "question": "Which operation is costly in arrays?",
+        "options": ["Insertion at beginning", "Access by index", "Update by index", "Remove from end"],
+        "answer": "Insertion at beginning",
+        "hint": "Requires shifting elements.",
+        "explanation": "Insertion at the beginning requires shifting all elements, so O(n) time."
+      },
+      {
+        "question": "What is a sparse array?",
+        "options": ["Array with mostly zero values", "Array with all values", "Sorted array", "Dynamic array"],
+        "answer": "Array with mostly zero values",
+        "hint": "Most elements are empty.",
+        "explanation": "A sparse array has most elements as zero or null, used to save space."
+      },
+      {
+        "question": "Which function finds the length of an array in Python?",
+        "options": ["len()", "size()", "length()", "count()"],
+        "answer": "len()",
+        "hint": "Built-in function.",
+        "explanation": "len() returns the number of elements in a Python array or list."
+      },
+      {
+        "question": "What is the result of array slicing?",
+        "options": ["Subarray", "Stack", "Queue", "Linked List"],
+        "answer": "Subarray",
+        "hint": "It creates a new array.",
+        "explanation": "Slicing returns a new subarray from the original array."
+      },
+      {
+        "question": "Which method is used to remove an element by value in Python list?",
+        "options": ["remove()", "pop()", "del", "clear()"],
+        "answer": "remove()",
+        "hint": "Removes first occurrence.",
+        "explanation": "remove() deletes the first occurrence of a value in a list."
+      },
+      {
+        "question": "What is the time complexity of merging two unsorted arrays?",
+        "options": ["O(n + m)", "O(nm)", "O(n^2)", "O(1)"],
+        "answer": "O(n + m)",
+        "hint": "Just concatenate.",
+        "explanation": "Merging (concatenating) two unsorted arrays is O(n + m)."
+      },
+      {
+        "question": "Which algorithm finds the kth smallest element in an array?",
+        "options": ["QuickSelect", "Heap Sort", "DFS", "BFS"],
+        "answer": "QuickSelect",
+        "hint": "Partition-based selection.",
+        "explanation": "QuickSelect finds the kth smallest in average O(n) time."
+      },
+      {
+        "question": "What is the output of array.sort() in Python?",
+        "options": ["Sorted in place", "Returns new array", "Stack", "Queue"],
+        "answer": "Sorted in place",
+        "hint": "Modifies original array.",
+        "explanation": "array.sort() sorts the array in place and returns None."
+      },
+      {
+        "question": "Which method is used to copy an array in Java?",
+        "options": ["clone()", "copy()", "duplicate()", "new()"],
+        "answer": "clone()",
+        "hint": "Built-in method.",
+        "explanation": "clone() creates a shallow copy of an array in Java."
+      },
+      {
+        "question": "What is the time complexity of inserting an element at a specific index in an array?",
+        "options": ["O(n)", "O(1)", "O(log n)", "O(n log n)"],
+        "answer": "O(n)",
+        "hint": "Elements need to be shifted.",
+        "explanation": "Inserting at a specific index requires shifting all subsequent elements, so O(n) time."
+      },
+      {
+        "question": "Which function in C returns the number of elements in a statically allocated array?",
+        "options": ["sizeof(array)/sizeof(array[0])", "length(array)", "count(array)", "array.size()"],
+        "answer": "sizeof(array)/sizeof(array[0])",
+        "hint": "Use sizeof operator.",
+        "explanation": "In C, sizeof(array)/sizeof(array[0]) gives the number of elements in a static array."
+      },
+      {
+        "question": "What is the output of concatenating two arrays?",
+        "options": ["A new array with elements of both", "Stack", "Queue", "Linked List"],
+        "answer": "A new array with elements of both",
+        "hint": "Elements are combined.",
+        "explanation": "Concatenation creates a new array containing all elements from both arrays."
+      },
+      {
+        "question": "Which algorithm is used to find the missing number in an array of 1 to n?",
+        "options": ["Sum formula", "Binary Search", "DFS", "Stack"],
+        "answer": "Sum formula",
+        "hint": "Use the sum of first n numbers.",
+        "explanation": "The sum formula (n*(n+1)/2) minus the array sum gives the missing number."
+      }
+    ],
+    "Dynamic Programming": [
+      {
+        "question": "Which of the following problems is best solved using DP?",
+        "options": ["0/1 Knapsack", "Binary Search", "Heap Sort", "BFS"],
+        "answer": "0/1 Knapsack",
+        "hint": "Look for overlapping subproblems and optimal substructure.",
+        "explanation": "DP is ideal for 0/1 Knapsack because it solves overlapping subproblems and stores intermediate results."
+      },
+      {
+        "question": "What is the time complexity of calculating Fibonacci using memoization?",
+        "options": ["O(n)", "O(n^2)", "O(log n)", "O(n log n)"],
+        "answer": "O(n)",
+        "hint": "Memoization avoids repeated calculations.",
+        "explanation": "Memoization stores previously calculated Fibonacci values, reducing time complexity from exponential to linear."
+      },
+      {
+        "question": "What does overlapping subproblems mean?",
+        "options": ["Same subproblems solved multiple times", "No subproblems", "Problems are dependent", "Parallel problems"],
+        "answer": "Same subproblems solved multiple times",
+        "hint": "Occurs when recursion solves the same input repeatedly.",
+        "explanation": "Overlapping subproblems mean the same function is called repeatedly with the same parameters in a recursive approach."
+      },
+      {
+        "question": "Which approach is used in Tabulation?",
+        "options": ["Bottom-up", "Top-down", "Recursion", "Backtracking"],
+        "answer": "Bottom-up",
+        "hint": "It builds the solution iteratively.",
+        "explanation": "Tabulation fills up a table by solving all subproblems from the base case upwards in a bottom-up manner."
+      },
+      {
+        "question": "LIS problem can be solved in O(n log n) using:",
+        "options": ["Binary Search + DP", "DFS", "Greedy", "Memoization only"],
+        "answer": "Binary Search + DP",
+        "hint": "Combine dynamic programming with a smart search.",
+        "explanation": "Using DP with binary search helps find the smallest tail values of increasing subsequences to reduce time complexity."
+      },
+      {
+        "question": "What is memoization in DP?",
+        "options": ["Storing results", "Recursion", "Sorting", "Searching"],
+        "answer": "Storing results",
+        "hint": "Saves subproblem answers.",
+        "explanation": "Memoization stores results of expensive function calls for reuse."
+      },
+      {
+        "question": "Which problem is a classic example of DP?",
+        "options": ["Longest Common Subsequence", "Binary Search", "Heap Sort", "DFS"],
+        "answer": "Longest Common Subsequence",
+        "hint": "String matching.",
+        "explanation": "LCS is solved efficiently using DP by storing subproblem results."
+      },
+      {
+        "question": "What is the time complexity of DP solution for 0/1 Knapsack?",
+        "options": ["O(nW)", "O(n)", "O(W)", "O(n^2)"],
+        "answer": "O(nW)",
+        "hint": "Depends on items and capacity.",
+        "explanation": "DP for 0/1 Knapsack is O(nW) where n is items and W is capacity."
+      },
+      {
+        "question": "Which approach avoids stack overflow in DP?",
+        "options": ["Tabulation", "Memoization", "Recursion", "Backtracking"],
+        "answer": "Tabulation",
+        "hint": "No recursion.",
+        "explanation": "Tabulation uses iteration, avoiding recursion and stack overflow."
+      },
+      {
+        "question": "What is the base case in Fibonacci DP?",
+        "options": ["F(0) and F(1)", "F(2)", "F(n)", "F(-1)"],
+        "answer": "F(0) and F(1)",
+        "hint": "First two numbers.",
+        "explanation": "Fibonacci DP starts with F(0) = 0 and F(1) = 1 as base cases."
+      },
+      {
+        "question": "Which DP problem involves partitioning a set into two subsets with equal sum?",
+        "options": ["Subset Sum", "Knapsack", "LCS", "Edit Distance"],
+        "answer": "Subset Sum",
+        "hint": "Sum of subsets.",
+        "explanation": "Subset Sum checks if a set can be split into two with equal sum using DP."
+      },
+      {
+        "question": "What is the time complexity of Edit Distance DP?",
+        "options": ["O(mn)", "O(n)", "O(m)", "O(1)"],
+        "answer": "O(mn)",
+        "hint": "Depends on lengths of two strings.",
+        "explanation": "Edit Distance DP is O(mn) for strings of length m and n."
+      },
+      {
+        "question": "Which technique is used in DP to avoid recomputation?",
+        "options": ["Memoization", "Sorting", "Searching", "Stack"],
+        "answer": "Memoization",
+        "hint": "Store answers.",
+        "explanation": "Memoization saves results to avoid recomputation in DP."
+      },
+      {
+        "question": "What is the optimal substructure property?",
+        "options": ["Optimal solution from optimal subproblems", "No subproblems", "Random solution", "Greedy only"],
+        "answer": "Optimal solution from optimal subproblems",
+        "hint": "Build from smaller solutions.",
+        "explanation": "DP relies on optimal substructure: optimal solutions are built from optimal subproblems."
+      },
+      {
+        "question": "Which DP problem is solved using a 2D table?",
+        "options": ["LCS", "Binary Search", "Heap Sort", "DFS"],
+        "answer": "LCS",
+        "hint": "Table for string comparison.",
+        "explanation": "LCS uses a 2D table to store subproblem results for two strings."
+      },
+      {
+        "question": "What is the time complexity of Coin Change DP?",
+        "options": ["O(n*amount)", "O(n)", "O(amount)", "O(n^2)"],
+        "answer": "O(n*amount)",
+        "hint": "Depends on coins and amount.",
+        "explanation": "Coin Change DP is O(n*amount) for n coins and target amount."
+      },
+      {
+        "question": "Which problem is NOT solved by DP?",
+        "options": ["Binary Search", "Knapsack", "LCS", "Edit Distance"],
+        "answer": "Binary Search",
+        "hint": "No overlapping subproblems.",
+        "explanation": "Binary Search is not a DP problem as it lacks overlapping subproblems."
+      },
+      {
+        "question": "What is the difference between DP and recursion?",
+        "options": ["DP stores results", "Recursion is faster", "DP is slower", "No difference"],
+        "answer": "DP stores results",
+        "hint": "DP avoids recomputation.",
+        "explanation": "DP stores subproblem results, recursion does not."
+      },
+      {
+        "question": "Which DP problem finds the minimum number of coins for a value?",
+        "options": ["Coin Change", "Knapsack", "LCS", "Edit Distance"],
+        "answer": "Coin Change",
+        "hint": "Fewest coins.",
+        "explanation": "Coin Change DP finds the minimum coins needed for a target value."
+      },
+      {
+        "question": "What is the time complexity of Matrix Chain Multiplication DP?",
+        "options": ["O(n^3)", "O(n^2)", "O(n)", "O(n log n)"],
+        "answer": "O(n^3)",
+        "hint": "Triple nested loops.",
+        "explanation": "Matrix Chain Multiplication DP is O(n^3) due to three nested loops."
+      },
+      {
+        "question": "Which DP problem is solved using bitmasking?",
+        "options": ["Travelling Salesman Problem", "Knapsack", "LCS", "Edit Distance"],
+        "answer": "Travelling Salesman Problem",
+        "hint": "Visit all cities.",
+        "explanation": "TSP uses DP with bitmasking to represent visited cities."
+      },
+      {
+        "question": "What is the advantage of tabulation over memoization?",
+        "options": ["No recursion", "Faster", "Less memory", "More readable"],
+        "answer": "No recursion",
+        "hint": "Iterative approach.",
+        "explanation": "Tabulation avoids recursion, so no stack overflow risk."
+      },
+      {
+        "question": "Which DP problem involves cutting a rod for maximum profit?",
+        "options": ["Rod Cutting", "Knapsack", "LCS", "Edit Distance"],
+        "answer": "Rod Cutting",
+        "hint": "Maximize value.",
+        "explanation": "Rod Cutting DP finds the best way to cut a rod for maximum profit."
+      },
+      {
+        "question": "What is the time complexity of Longest Increasing Subsequence DP?",
+        "options": ["O(n^2)", "O(n)", "O(log n)", "O(n log n)"],
+        "answer": "O(n^2)",
+        "hint": "Nested loops.",
+        "explanation": "LIS DP is O(n^2) using nested loops."
+      },
+      {
+        "question": "Which DP problem is solved using a rolling array?",
+        "options": ["Space optimization", "Knapsack", "LCS", "Edit Distance"],
+        "answer": "Space optimization",
+        "hint": "Reuse previous results.",
+        "explanation": "Rolling array technique reduces space by reusing previous results."
+      }
+    ],
+    "Graph": [
+      {
+        "question": "Which algorithm is used to detect cycle in an undirected graph?",
+        "options": ["DFS", "BFS", "Union-Find", "Dijkstra"],
+        "answer": "Union-Find",
+        "hint": "Think disjoint sets.",
+        "explanation": "Union-Find helps detect cycles by checking if two vertices are already connected in the same set."
+      },
+      {
+        "question": "Which algorithm finds the shortest path in a weighted graph?",
+        "options": ["Dijkstra", "DFS", "Topological Sort", "Prim"],
+        "answer": "Dijkstra",
+        "hint": "It uses a priority queue.",
+        "explanation": "Dijkstra's algorithm finds the shortest path from a source to all vertices in graphs with non-negative weights."
+      },
+      {
+        "question": "Which traversal uses a queue?",
+        "options": ["BFS", "DFS", "Inorder", "Postorder"],
+        "answer": "BFS",
+        "hint": "Think level-order traversal.",
+        "explanation": "Breadth-First Search uses a queue to visit all vertices level by level."
+      },
+      {
+        "question": "Topological sort is applicable to:",
+        "options": ["Directed Acyclic Graph", "Tree", "Undirected Graph", "Any Graph"],
+        "answer": "Directed Acyclic Graph",
+        "hint": "Think dependencies.",
+        "explanation": "Topological sort is only valid for DAGs where tasks must be ordered respecting dependencies."
+      },
+      {
+        "question": "What is the time complexity of DFS?",
+        "options": ["O(V + E)", "O(V^2)", "O(E)", "O(V log V)"],
+        "answer": "O(V + E)",
+        "hint": "Each node and edge is visited once.",
+        "explanation": "DFS visits each node and edge once, resulting in O(V + E) time complexity."
+      },
+      {
+        "question": "What is the time complexity of BFS?",
+        "options": ["O(V + E)", "O(V^2)", "O(E)", "O(V log V)"],
+        "answer": "O(V + E)",
+        "hint": "Each node and edge is visited once.",
+        "explanation": "BFS visits each node and edge once, resulting in O(V + E) time complexity."
+      },
+      {
+        "question": "Which algorithm finds the minimum spanning tree?",
+        "options": ["Prim's", "Kruskal's", "Dijkstra", "Bellman-Ford"],
+        "answer": "Prim's",
+        "hint": "Starts from an arbitrary node.",
+        "explanation": "Prim's algorithm finds the minimum spanning tree by starting from an arbitrary node and growing the tree."
+      },
+      {
+        "question": "Which data structure is used in Dijkstra's algorithm?",
+        "options": ["Priority Queue", "Stack", "Queue", "Array"],
+        "answer": "Priority Queue",
+        "hint": "To select the edge with the smallest weight.",
+        "explanation": "Dijkstra's algorithm uses a priority queue to select the edge with the smallest weight."
+      },
+      {
+        "question": "What is the Bellman-Ford algorithm used for?",
+        "options": ["Shortest path in weighted graphs", "Minimum spanning tree", "Cycle detection", "Topological sorting"],
+        "answer": "Shortest path in weighted graphs",
+        "hint": "It can handle negative weights.",
+        "explanation": "Bellman-Ford algorithm finds the shortest path in weighted graphs and can handle negative weights."
+      },
+      {
+        "question": "Which algorithm is used to find strongly connected components?",
+        "options": ["Kosaraju's", "Prim's", "Kruskal's", "Dijkstra"],
+        "answer": "Kosaraju's",
+        "hint": "Uses two passes of DFS.",
+        "explanation": "Kosaraju's algorithm finds strongly connected components using two passes of DFS."
+      },
+      {
+        "question": "What is the time complexity of Kruskal's algorithm?",
+        "options": ["O(E log E)", "O(V^2)", "O(E)", "O(V log V)"],
+        "answer": "O(E log E)",
+        "hint": "Sorting edges takes the most time.",
+        "explanation": "Kruskal's algorithm is O(E log E) due to sorting the edges."
+      },
+      {
+        "question": "Which of the following is a complete graph?",
+        "options": ["Every pair of vertices is connected", "Acyclic graph", "Tree", "Graph with self-loops"],
+        "answer": "Every pair of vertices is connected",
+        "hint": "Think of a fully connected network.",
+        "explanation": "In a complete graph, every pair of vertices is connected by an edge."
+      },
+      {
+        "question": "What is the chromatic number of a graph?",
+        "options": ["Minimum colors to color the graph", "Number of edges", "Number of vertices", "Maximum degree of vertex"],
+        "answer": "Minimum colors to color the graph",
+        "hint": "No two adjacent vertices share the same color.",
+        "explanation": "The chromatic number is the minimum number of colors needed to color a graph's vertices."
+      },
+      {
+        "question": "Which algorithm is used for finding the shortest path in a graph with negative weights?",
+        "options": ["Bellman-Ford", "Dijkstra", "Prim's", "Kruskal's"],
+        "answer": "Bellman-Ford",
+        "hint": "It can handle negative weights.",
+        "explanation": "Bellman-Ford algorithm finds the shortest path in graphs with negative weights."
+      },
+      {
+        "question": "What is a bipartite graph?",
+        "options": ["Vertices can be divided into two sets", "All vertices are connected", "No edges", "Acyclic graph"],
+        "answer": "Vertices can be divided into two sets",
+        "hint": "Two groups with no intra-group edges.",
+        "explanation": "A bipartite graph's vertices can be divided into two sets where no two graph vertices within the same set are adjacent."
+      },
+      {
+        "question": "Which of the following problems can be solved using a graph?",
+        "options": ["Finding the shortest path", "Sorting numbers", "Searching in a list", "None of the above"],
+        "answer": "Finding the shortest path",
+        "hint": "Graphs are used for networked systems.",
+        "explanation": "Graphs are ideal for representing networks and finding the shortest path between nodes."
+      },
+      {
+        "question": "What is the maximum number of edges in a simple undirected graph with n vertices?",
+        "options": ["n(n-1)/2", "n^2", "2n", "n(n+1)/2"],
+        "answer": "n(n-1)/2",
+        "hint": "Complete graph formula.",
+        "explanation": "A complete graph with n vertices has n(n-1)/2 edges, as every pair of vertices is connected."
+      },
+      {
+        "question": "Which traversal would you use to find the shortest path in an unweighted graph?",
+        "options": ["BFS", "DFS", "Dijkstra", "Prim"],
+        "answer": "BFS",
+        "hint": "Think of exploring all neighbors at the present depth prior to moving on to nodes at the next depth level.",
+        "explanation": "BFS is ideal for finding the shortest path in unweighted graphs as it explores all neighbors at the present depth prior to moving on to nodes at the next depth level."
+      },
+      {
+        "question": "What is the main advantage of using an adjacency list over an adjacency matrix?",
+        "options": ["Saves space for sparse graphs", "Faster to access any edge", "Easier to implement", "More flexible"],
+        "answer": "Saves space for sparse graphs",
+        "hint": "Think about the number of edges.",
+        "explanation": "Adjacency lists save space in sparse graphs where the number of edges is much less than the number of vertices squared."
+      },
+      {
+        "question": "Which of the following is true about a tree?",
+        "options": ["It's a connected graph with no cycles", "It's a complete graph", "It's a bipartite graph", "It's a graph with self-loops"],
+        "answer": "It's a connected graph with no cycles",
+        "hint": "A tree is a special type of graph.",
+        "explanation": "A tree is a connected graph with no cycles, and it has n-1 edges if there are n vertices."
+      },
+      {
+        "question": "What is a spanning tree?",
+        "options": ["A subgraph that covers all vertices", "A tree within a graph", "A cycle that includes all vertices", "None of the above"],
+        "answer": "A subgraph that covers all vertices",
+        "hint": "Think of a tree that spans all the vertices.",
+        "explanation": "A spanning tree is a subgraph that includes all the vertices of the original graph with the minimum possible number of edges."
+      },
+      {
+        "question": "Which of the following algorithms can be used to find the shortest path in a graph with non-negative weights?",
+        "options": ["Dijkstra's", "Bellman-Ford", "Floyd-Warshall", "All of the above"],
+        "answer": "Dijkstra's",
+        "hint": "It's the most efficient for this purpose.",
+        "explanation": "Dijkstra's algorithm is the most efficient for finding the shortest path in a graph with non-negative weights."
+      },
+      {
+        "question": "What is the main purpose of the Floyd-Warshall algorithm?",
+        "options": ["Finding shortest paths between all pairs of vertices", "Finding the shortest path from one vertex to all others", "Detecting cycles in a graph", "None of the above"],
+        "answer": "Finding shortest paths between all pairs of vertices",
+        "hint": "It's a comprehensive pathfinding algorithm.",
+        "explanation": "The Floyd-Warshall algorithm finds the shortest paths between all pairs of vertices in a graph."
+      },
+      {
+        "question": "Which of the following is a characteristic of a depth-first search (DFS)?",
+        "options": ["Uses a stack", "Uses a queue", "Visits nodes in layers", "None of the above"],
+        "answer": "Uses a stack",
+        "hint": "Think about the order of node visits.",
+        "explanation": "DFS uses a stack to remember the next vertex to visit, going as deep as possible down one path before backing up."
+      },
+      {
+        "question": "What is the main disadvantage of using Dijkstra's algorithm?",
+        "options": ["Doesn't work with negative weights", "Requires more memory", "Slower than Bellman-Ford", "None of the above"],
+        "answer": "Doesn't work with negative weights",
+        "hint": "Consider the types of graphs it can be used on.",
+        "explanation": "Dijkstra's algorithm doesn't work with graphs that have negative weight edges, as it can lead to incorrect results."
+      },
+      {
+        "question": "Which of the following problems can be solved using a graph?",
+        "options": ["Finding the shortest path", "Finding the minimum spanning tree", "Detecting cycles", "All of the above"],
+        "answer": "All of the above",
+        "hint": "Graphs are versatile data structures.",
+        "explanation": "Graphs are versatile data structures that can be used to solve a wide variety of problems, including finding the shortest path, finding the minimum spanning tree, and detecting cycles."
+      }
+    ],
+    "Linked List": [
+    {
+      "question": "What is the time complexity to insert a node at the beginning of a singly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(1)",
+      "hint": "You're just updating the head pointer.",
+      "explanation": "Inserting at the beginning only requires changing one pointer, which takes constant time."
+    },
+    {
+      "question": "Which data structure is used for implementing adjacency lists in graphs?",
+      "options": ["Array", "Stack", "Linked List", "Tree"],
+      "answer": "Linked List",
+      "hint": "Think about dynamic connections.",
+      "explanation": "Linked lists are ideal for storing adjacent nodes as they allow dynamic memory allocation and efficient insertion."
+    },
+    {
+      "question": "What is the advantage of a doubly linked list over a singly linked list?",
+      "options": ["Can be traversed in both directions", "Less memory", "Faster insertion", "Simpler code"],
+      "answer": "Can be traversed in both directions",
+      "hint": "Two pointers are involved in each node.",
+      "explanation": "A doubly linked list contains pointers to both the next and previous nodes, allowing traversal in both directions."
+    },
+    {
+      "question": "How can you detect a cycle in a linked list?",
+      "options": ["Floyd’s Cycle Detection", "DFS", "Binary Search", "Inorder Traversal"],
+      "answer": "Floyd’s Cycle Detection",
+      "hint": "It uses slow and fast pointers.",
+      "explanation": "Floyd’s algorithm uses two pointers moving at different speeds. If there’s a loop, they’ll eventually meet."
+    },
+    {
+      "question": "What happens if you try to access a deleted node?",
+      "options": ["Undefined behavior", "Returns null", "Throws an exception", "Returns 0"],
+      "answer": "Undefined behavior",
+      "hint": "Memory is no longer valid.",
+      "explanation": "Accessing a deleted node leads to undefined behavior as the memory could be reused or invalid."
+    },
+    {
+      "question": "What is the time complexity to append a node at the end of a singly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(1)",
+      "hint": "You have a tail pointer.",
+      "explanation": "Appending at the end is O(1) if you maintain a tail pointer, otherwise O(n)."
+    },
+    {
+      "question": "Which operation is not allowed on a singly linked list?",
+      "options": ["Insert at beginning", "Delete from beginning", "Insert at middle", "Insert at end without tail"],
+      "answer": "Insert at end without tail",
+      "hint": "You can't access the last node directly.",
+      "explanation": "Without a tail pointer, you can't directly access the last node, making insertion at end O(n)."
+    },
+    {
+      "question": "What is a sentinel node?",
+      "options": ["A dummy node at the beginning or end", "A node with no value", "A deleted node", "A node that points to itself"],
+      "answer": "A dummy node at the beginning or end",
+      "hint": "It's used to simplify boundary conditions.",
+      "explanation": "A sentinel node is a dummy node added at the beginning or end of a list to simplify insertion and deletion operations."
+    },
+    {
+      "question": "How do you reverse a linked list?",
+      "options": ["Iteratively or recursively", "Only iteratively", "Only recursively", "Can't be done"],
+      "answer": "Iteratively or recursively",
+      "hint": "Change the direction of pointers.",
+      "explanation": "A linked list can be reversed by changing the direction of the pointers either iteratively or recursively."
+    },
+    {
+      "question": "What is the time complexity of finding the middle element in a linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You have to traverse the list.",
+      "explanation": "Finding the middle element requires traversing the list, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is true about a doubly linked list?",
+      "options": ["It uses more memory than a singly linked list", "It's always sorted", "It can't be circular", "None of the above"],
+      "answer": "It uses more memory than a singly linked list",
+      "hint": "Two pointers per node.",
+      "explanation": "Each node in a doubly linked list contains an extra pointer for the previous node, using more memory."
+    },
+    {
+      "question": "What is the time complexity of deleting a node in the middle of a singly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(1)",
+      "hint": "You have a pointer to the node.",
+      "explanation": "If you have a pointer to the node, deletion is O(1), otherwise O(n) to find the node."
+    },
+    {
+      "question": "How do you merge two sorted linked lists?",
+      "options": ["Iteratively or recursively", "Only iteratively", "Only recursively", "Can't be done"],
+      "answer": "Iteratively or recursively",
+      "hint": "Maintain pointers to current nodes.",
+      "explanation": "Two sorted linked lists can be merged by maintaining pointers to the current nodes in each list."
+    },
+    {
+      "question": "What is the time complexity of detecting a cycle in a linked list using Floyd’s Cycle Detection?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You have to traverse the list.",
+      "explanation": "Detecting a cycle using Floyd’s method requires traversing the list, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is a disadvantage of a linked list?",
+      "options": ["Dynamic size", "Ease of insertion/deletion", "No random access", "All of the above"],
+      "answer": "No random access",
+      "hint": "You can't access an element by index.",
+      "explanation": "Linked lists do not allow random access as arrays do, you must traverse from the head to find an element."
+    },
+    {
+      "question": "What is the time complexity of accessing the last element in a singly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You have to traverse the list.",
+      "explanation": "Accessing the last element requires traversing the list, so it's O(n). If it's a doubly linked list with a tail pointer, it's O(1)."
+    },
+    {
+      "question": "How do you remove duplicates from a sorted linked list?",
+      "options": ["Iteratively", "Recursively", "Both iteratively and recursively", "Can't be done"],
+      "answer": "Both iteratively and recursively",
+      "hint": "Maintain a pointer to the previous node.",
+      "explanation": "Duplicates can be removed by maintaining a pointer to the previous node and skipping over nodes with duplicate values."
+    },
+    {
+      "question": "What is the time complexity of inserting a node at the end of a doubly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(1)",
+      "hint": "You have a tail pointer.",
+      "explanation": "Appending at the end is O(1) if you maintain a tail pointer in a doubly linked list."
+    },
+    {
+      "question": "Which of the following is true about a circular linked list?",
+      "options": ["The last node points to the first node", "It's always sorted", "It can't have duplicates", "None of the above"],
+      "answer": "The last node points to the first node",
+      "hint": "Think about the structure of the list.",
+      "explanation": "In a circular linked list, the last node points to the first node, forming a circle."
+    },
+    {
+      "question": "What is the time complexity of reversing a doubly linked list?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You have to change the direction of the pointers.",
+      "explanation": "Reversing a doubly linked list requires changing the direction of the pointers for each node, so it's O(n)."
+    },
+    {
+      "question": "How do you find the intersection point of two linked lists?",
+      "options": ["By value", "By reference", "By position", "All of the above"],
+      "answer": "By reference",
+      "hint": "They must intersect at the same node.",
+      "explanation": "Two linked lists intersect if they share a common node by reference, not just by value or position."
+    },
+    {
+      "question": "What is the time complexity of finding the intersection point of two linked lists?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You have to traverse both lists.",
+      "explanation": "Finding the intersection point requires traversing both lists, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is a characteristic of a breadth-first search (BFS) on a graph?",
+      "options": ["Uses a queue", "Uses a stack", "Visits nodes in layers", "Both uses a queue and visits nodes in layers"],
+      "answer": "Both uses a queue and visits nodes in layers",
+      "hint": "Think about the order of node visits.",
+      "explanation": "BFS uses a queue to remember the next vertex to visit and explores all neighbors at the present depth prior to moving on to nodes at the next depth level."
+    },
+    {
+      "question": "What is the main disadvantage of using a linked list?",
+      "options": ["No random access", "More memory usage", "Slower traversal", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Consider the characteristics of linked lists.",
+      "explanation": "Linked lists have several disadvantages including no random access, more memory usage per element, and slower traversal compared to arrays."
+    }
+  ],
+  "Stack": [
+    {
+      "question": "What is the time complexity of push operation in a stack implemented using an array?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(1)",
+      "hint": "It adds at the top.",
+      "explanation": "Push operation in a stack adds the element to the top and takes constant time."
+    },
+    {
+      "question": "Stacks follow which order?",
+      "options": ["LIFO", "FIFO", "Random", "Sorted"],
+      "answer": "LIFO",
+      "hint": "Last comes out first.",
+      "explanation": "Stack follows the Last In First Out order, meaning the most recent item is removed first."
+    },
+    {
+      "question": "Which algorithm uses stack for expression evaluation?",
+      "options": ["Postfix Evaluation", "Binary Search", "Prim's", "Kruskal's"],
+      "answer": "Postfix Evaluation",
+      "hint": "Reverse Polish Notation.",
+      "explanation": "Postfix (or Reverse Polish) expressions are evaluated using a stack by pushing operands and applying operators."
+    },
+    {
+      "question": "Which function is used to check if stack is empty?",
+      "options": ["isEmpty()", "peek()", "pop()", "top()"],
+      "answer": "isEmpty()",
+      "hint": "Used for safety before popping.",
+      "explanation": "isEmpty() checks whether the stack has any elements before operations like pop or peek."
+    },
+    {
+      "question": "What is the auxiliary space complexity for recursion?",
+      "options": ["O(n)", "O(1)", "O(n^2)", "O(log n)"],
+      "answer": "O(n)",
+      "hint": "Function calls stack up.",
+      "explanation": "Each recursive call adds a frame to the call stack, making the auxiliary space O(n) for n calls."
+    },
+    {
+      "question": "What is the time complexity of pop operation in a stack implemented using an array?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(1)",
+      "hint": "It removes from the top.",
+      "explanation": "Pop operation in a stack removes the element from the top and takes constant time."
+    },
+    {
+      "question": "Which of the following is a valid stack operation?",
+      "options": ["Push", "Pop", "Peek", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Think about stack functionality.",
+      "explanation": "All listed options are valid operations for a stack."
+    },
+    {
+      "question": "What is the result of popping from an empty stack?",
+      "options": ["Undefined behavior", "Returns null", "Throws an exception", "Returns 0"],
+      "answer": "Throws an exception",
+      "hint": "Stack underflow.",
+      "explanation": "Popping from an empty stack typically results in an exception or error due to stack underflow."
+    },
+    {
+      "question": "Which data structure is used to implement a stack in most programming languages?",
+      "options": ["Array", "Linked List", "Both array and linked list", "None of the above"],
+      "answer": "Both array and linked list",
+      "hint": "Think about dynamic and static implementation.",
+      "explanation": "Stacks can be implemented using both arrays (static) and linked lists (dynamic) in different programming languages."
+    },
+    {
+      "question": "What is the space complexity of a stack with n elements?",
+      "options": ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+      "answer": "O(n)",
+      "hint": "Each element takes space.",
+      "explanation": "A stack with n elements has a space complexity of O(n) as each element takes up space on the stack."
+    },
+    {
+      "question": "Which of the following is not a characteristic of a stack?",
+      "options": ["Last In First Out", "Dynamic size", "Random access", "All of the above"],
+      "answer": "Random access",
+      "hint": "Think about how stacks operate.",
+      "explanation": "Stacks do not allow random access to elements, you can only access the top element."
+    },
+    {
+      "question": "What is the time complexity of accessing the top element in a stack?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(1)",
+      "hint": "You're just looking at the top.",
+      "explanation": "Accessing the top element in a stack is O(1) as you are directly accessing the last element added."
+    },
+    {
+      "question": "Which of the following problems can be solved using a stack?",
+      "options": ["Expression evaluation", "Backtracking", "Memory management", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Stacks are versatile data structures.",
+      "explanation": "Stacks are versatile data structures that can be used to solve a wide variety of problems, including expression evaluation, backtracking, and memory management."
+    },
+    {
+      "question": "What is the main advantage of using a stack?",
+      "options": ["Simplicity", "Speed", "Memory efficiency", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Consider the characteristics of stacks.",
+      "explanation": "Stacks have several advantages including simplicity, speed, and memory efficiency for certain tasks."
+    },
+    {
+      "question": "Which of the following is a real-world analogy for a stack?",
+      "options": ["A stack of plates", "A queue of people", "A line of cars", "None of the above"],
+      "answer": "A stack of plates",
+      "hint": "Think about how plates are added and removed.",
+      "explanation": "A stack of plates is a good analogy for a stack data structure, where you add and remove plates from the top."
+    },
+    {
+      "question": "What happens when a stack overflows?",
+      "options": ["It expands in size", "It crashes the program", "It throws an exception", "None of the above"],
+      "answer": "It throws an exception",
+      "hint": "Stack overflow error.",
+      "explanation": "When a stack overflows, it typically throws a stack overflow exception or error."
+    },
+    {
+      "question": "What is the maximum size of a stack?",
+      "options": ["Depends on the implementation", "Always 1000", "Depends on the system memory", "None of the above"],
+      "answer": "Depends on the implementation",
+      "hint": "Think about static vs dynamic allocation.",
+      "explanation": "The maximum size of a stack depends on the implementation, whether it's statically or dynamically allocated."
+    },
+    {
+      "question": "Which of the following is a method of a stack in Java?",
+      "options": ["push()", "pop()", "peek()", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Think about stack operations.",
+      "explanation": "All listed options are methods of a stack in Java."
+    },
+    {
+      "question": "What is the time complexity of searching for an element in a stack?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each element.",
+      "explanation": "Searching for an element in a stack is O(n) as you might have to look at each element in the worst case."
+    },
+    {
+      "question": "Which of the following is not a valid operation on a stack?",
+      "options": ["Push", "Pop", "Insert at bottom", "Peek"],
+      "answer": "Insert at bottom",
+      "hint": "Think about stack functionality.",
+      "explanation": "Inserting at the bottom is not a valid operation on a stack, you can only push to or pop from the top."
+    },
+    {
+      "question": "What is the result of pushing onto a full stack?",
+      "options": ["Stack overflow", "The stack expands", "The program crashes", "None of the above"],
+      "answer": "Stack overflow",
+      "hint": "You've exceeded the stack size.",
+      "explanation": "Pushing onto a full stack results in a stack overflow, as you have exceeded the stack size."
+    },
+    {
+      "question": "Which of the following is a characteristic of a depth-first search (DFS) on a graph?",
+      "options": ["Uses a stack", "Uses a queue", "Visits nodes in layers", "Both uses a stack and visits nodes in layers"],
+      "answer": "Both uses a stack and visits nodes in layers",
+      "hint": "Think about the order of node visits.",
+      "explanation": "DFS uses a stack to remember the next vertex to visit and goes as deep as possible down one path before backing up."
+    },
+    {
+      "question": "Which data structure is used for level order traversal?",
+      "options": ["Queue", "Stack", "Linked List", "Array"],
+      "answer": "Queue",
+      "hint": "Used in BFS.",
+      "explanation": "Level order traversal uses a queue to visit nodes layer by layer, starting from the root."
+    },
+    {
+      "question": "In a priority queue, elements are served based on:",
+      "options": ["Priority", "Time", "Index", "Randomness"],
+      "answer": "Priority",
+      "hint": "Important elements come first.",
+      "explanation": "In a priority queue, each element has a priority and the one with highest priority is processed first."
+    },
+    {
+      "question": "What is the time complexity of enqueue operation in a queue implemented using an array?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(1)",
+      "hint": "It adds at the end.",
+      "explanation": "Enqueue operation in a queue adds the element to the end and takes constant time."
+    },
+    {
+      "question": "What is the time complexity of dequeue operation in a queue implemented using an array?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "It removes from the front.",
+      "explanation": "Dequeue operation in a queue removes the element from the front and takes linear time as elements need to be shifted."
+    },
+    {
+      "question": "Which of the following is a valid queue operation?",
+      "options": ["Enqueue", "Dequeue", "Peek", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Think about queue functionality.",
+      "explanation": "All listed options are valid operations for a queue."
+    },
+    {
+      "question": "What is the result of dequeuing from an empty queue?",
+      "options": ["Undefined behavior", "Returns null", "Throws an exception", "Returns 0"],
+      "answer": "Throws an exception",
+      "hint": "Queue underflow.",
+      "explanation": "Dequeuing from an empty queue typically results in an exception or error due to queue underflow."
+    },
+    {
+      "question": "Which data structure is used to implement a queue in most programming languages?",
+      "options": ["Array", "Linked List", "Both array and linked list", "None of the above"],
+      "answer": "Both array and linked list",
+      "hint": "Think about dynamic and static implementation.",
+      "explanation": "Queues can be implemented using both arrays (static) and linked lists (dynamic) in different programming languages."
+    },
+    {
+      "question": "What is the space complexity of a queue with n elements?",
+      "options": ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+      "answer": "O(n)",
+      "hint": "Each element takes space.",
+      "explanation": "A queue with n elements has a space complexity of O(n) as each element takes up space in the queue."
+    },
+    {
+      "question": "Which of the following is not a characteristic of a queue?",
+      "options": ["First In First Out", "Dynamic size", "Random access", "All of the above"],
+      "answer": "Random access",
+      "hint": "Think about how queues operate.",
+      "explanation": "Queues do not allow random access to elements, you can only access the front element."
+    },
+    {
+      "question": "What is the time complexity of accessing the front element in a queue?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(1)",
+      "hint": "You're just looking at the front.",
+      "explanation": "Accessing the front element in a queue is O(1) as you are directly accessing the first element added."
+    },
+    {
+      "question": "Which of the following problems can be solved using a queue?",
+      "options": ["Breadth-first search", "Scheduling", "Buffering", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Queues are versatile data structures.",
+      "explanation": "Queues are versatile data structures that can be used to solve a wide variety of problems, including breadth-first search, scheduling, and buffering."
+    },
+    {
+      "question": "What is the main advantage of using a queue?",
+      "options": ["Simplicity", "Speed", "Memory efficiency", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Consider the characteristics of queues.",
+      "explanation": "Queues have several advantages including simplicity, speed, and memory efficiency for certain tasks."
+    },
+    {
+      "question": "Which of the following is a real-world analogy for a queue?",
+      "options": ["A line of people", "A stack of plates", "A line of cars", "None of the above"],
+      "answer": "A line of people",
+      "hint": "Think about how people line up.",
+      "explanation": "A line of people waiting for a bus is a good analogy for a queue data structure, where the first person in line is the first one served."
+    },
+    {
+      "question": "What happens when a queue overflows?",
+      "options": ["It expands in size", "It crashes the program", "It throws an exception", "None of the above"],
+      "answer": "It throws an exception",
+      "hint": "Queue overflow error.",
+      "explanation": "When a queue overflows, it typically throws a queue overflow exception or error."
+    },
+    {
+      "question": "What is the maximum size of a queue?",
+      "options": ["Depends on the implementation", "Always 1000", "Depends on the system memory", "None of the above"],
+      "answer": "Depends on the implementation",
+      "hint": "Think about static vs dynamic allocation.",
+      "explanation": "The maximum size of a queue depends on the implementation, whether it's statically or dynamically allocated."
+    },
+    {
+      "question": "Which of the following is a method of a queue in Java?",
+      "options": ["enqueue()", "dequeue()", "peek()", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Think about queue operations.",
+      "explanation": "All listed options are methods of a queue in Java."
+    },
+    {
+      "question": "What is the time complexity of searching for an element in a queue?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each element.",
+      "explanation": "Searching for an element in a queue is O(n) as you might have to look at each element in the worst case."
+    },
+    {
+      "question": "Which of the following is not a valid operation on a queue?",
+      "options": ["Enqueue", "Dequeue", "Insert at front", "Peek"],
+      "answer": "Insert at front",
+      "hint": "Think about queue functionality.",
+      "explanation": "Inserting at the front is not a valid operation on a queue, you can only enqueue to or dequeue from the rear."
+    },
+    {
+      "question": "What is the result of enqueueing onto a full queue?",
+      "options": ["Queue overflow", "The queue expands", "The program crashes", "None of the above"],
+      "answer": "Queue overflow",
+      "hint": "You've exceeded the queue size.",
+      "explanation": "Enqueueing onto a full queue results in a queue overflow, as you have exceeded the queue size."
+    },
+    {
+      "question": "Which of the following is a characteristic of a breadth-first search (BFS) on a graph?",
+      "options": ["Uses a queue", "Uses a stack", "Visits nodes in layers", "Both uses a queue and visits nodes in layers"],
+      "answer": "Both uses a queue and visits nodes in layers",
+      "hint": "Think about the order of node visits.",
+      "explanation": "BFS uses a queue to remember the next vertex to visit and explores all neighbors at the present depth prior to moving on to nodes at the next depth level."
+    }
+  ],
+  "Trees": [
+    {
+      "question": "What is the height of a tree with only a root node?",
+      "options": ["0", "1", "-1", "Depends on type"],
+      "answer": "0",
+      "hint": "Height is number of edges.",
+      "explanation": "A single node tree has height 0 because there are no edges from root to children."
+    },
+    {
+      "question": "Which traversal gives sorted order for BST?",
+      "options": ["Inorder", "Preorder", "Postorder", "Level order"],
+      "answer": "Inorder",
+      "hint": "Left → Root → Right",
+      "explanation": "Inorder traversal of a Binary Search Tree visits nodes in sorted ascending order."
+    },
+    {
+      "question": "What is the maximum number of nodes in a binary tree of height h?",
+      "options": ["2^(h+1) - 1", "2^h", "h", "log h"],
+      "answer": "2^(h+1) - 1",
+      "hint": "It's a complete binary tree.",
+      "explanation": "In a complete binary tree, each level doubles the number of nodes. Total is 2^(h+1) - 1."
+    },
+    {
+      "question": "What is the time complexity of finding height of binary tree?",
+      "options": ["O(n)", "O(log n)", "O(n^2)", "O(1)"],
+      "answer": "O(n)",
+      "hint": "You visit each node once.",
+      "explanation": "To calculate height, we recursively visit all nodes, so time is linear in number of nodes."
+    },
+    {
+      "question": "Which traversal method is best for expression trees?",
+      "options": ["Postorder", "Preorder", "Inorder", "Level order"],
+      "answer": "Postorder",
+      "hint": "Evaluate children before parent.",
+      "explanation": "Postorder is used to evaluate expression trees where children nodes (operands) are processed before the operator."
+    },
+    {
+      "question": "What is the time complexity of inserting a node in a binary search tree (BST)?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the correct insertion point, so it's O(n)."
+    },
+    {
+      "question": "What is the time complexity of deleting a node in a binary search tree (BST)?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the node to delete, so it's O(n)."
+    },
+    {
+      "question": "What is the time complexity of searching for a value in a binary search tree (BST)?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the value, so it's O(n)."
+    },
+    {
+      "question": "What is the space complexity of a binary tree with n nodes?",
+      "options": ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+      "answer": "O(n)",
+      "hint": "Each node takes space.",
+      "explanation": "A binary tree with n nodes has a space complexity of O(n) as each node takes up space in the tree."
+    },
+    {
+      "question": "What is the time complexity of level order traversal of a binary tree?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You visit each node once.",
+      "explanation": "Level order traversal visits each node once, resulting in O(n) time complexity."
+    },
+    {
+      "question": "Which of the following is true about a binary tree?",
+      "options": ["Each node has at most two children", "It's always balanced", "It's a complete graph", "None of the above"],
+      "answer": "Each node has at most two children",
+      "hint": "Think about the structure of the tree.",
+      "explanation": "In a binary tree, each node has at most two children, referred to as the left and right child."
+    },
+    {
+      "question": "What is the time complexity of finding the lowest common ancestor (LCA) of two nodes in a binary tree?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the LCA, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is a characteristic of a breadth-first search (BFS) on a tree?",
+      "options": ["Uses a queue", "Uses a stack", "Visits nodes in layers", "Both uses a queue and visits nodes in layers"],
+      "answer": "Both uses a queue and visits nodes in layers",
+      "hint": "Think about the order of node visits.",
+      "explanation": "BFS uses a queue to remember the next vertex to visit and explores all neighbors at the present depth prior to moving on to nodes at the next depth level."
+    },
+    {
+      "question": "What is the main disadvantage of using a binary tree?",
+      "options": ["No random access", "More memory usage", "Slower traversal", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Consider the characteristics of binary trees.",
+      "explanation": "Binary trees have several disadvantages including no random access, more memory usage per element, and slower traversal compared to arrays."
+    },
+    {
+      "question": "Which of the following is a method of a binary tree in Java?",
+      "options": ["add()", "remove()", "find()", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Think about tree operations.",
+      "explanation": "All listed options are methods of a binary tree in Java."
+    },
+    {
+      "question": "What is the time complexity of searching for a value in a binary tree?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the value, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is not a valid operation on a binary tree?",
+      "options": ["Add", "Remove", "Find", "All of the above are valid"],
+      "answer": "All of the above are valid",
+      "hint": "Think about tree functionality.",
+      "explanation": "All listed options are valid operations for a binary tree."
+    },
+    {
+      "question": "What is the result of removing a node with two children in a binary tree?",
+      "options": ["The tree becomes unbalanced", "The node is replaced by its inorder successor", "The node is deleted and the tree shrinks", "None of the above"],
+      "answer": "The node is replaced by its inorder successor",
+      "hint": "Think about how to maintain the binary search tree property.",
+      "explanation": "When removing a node with two children, it's common to replace the node with its inorder successor to maintain the binary search tree property."
+    },
+    {
+      "question": "Which of the following is a characteristic of a depth-first search (DFS) on a tree?",
+      "options": ["Uses a stack", "Uses a queue", "Visits nodes in layers", "Both uses a stack and visits nodes in layers"],
+      "answer": "Both uses a stack and visits nodes in layers",
+      "hint": "Think about the order of node visits.",
+      "explanation": "DFS uses a stack to remember the next vertex to visit and goes as deep as possible down one path before backing up."
+    }
+  ],
+  "Binary Search Tree": [
+    {
+      "question": "In BST, the left child is always:",
+      "options": ["Less than root", "Greater than root", "Equal to root", "Random"],
+      "answer": "Less than root",
+      "hint": "Smaller elements go to left.",
+      "explanation": "By BST property, left child contains values smaller than the current node (root)."
+    },
+    {
+      "question": "What is the time complexity for searching in balanced BST?",
+      "options": ["O(log n)", "O(n)", "O(1)", "O(n log n)"],
+      "answer": "O(log n)",
+      "hint": "Each step cuts the tree in half.",
+      "explanation": "In a balanced BST, height is log n, and each search halves the search space like binary search."
+    },
+    {
+      "question": "Which traversal is used to print values in ascending order in BST?",
+      "options": ["Inorder", "Preorder", "Postorder", "Level order"],
+      "answer": "Inorder",
+      "hint": "Left → Root → Right gives sorted output.",
+      "explanation": "Inorder traversal visits left subtree, node, and right subtree, which for BST results in sorted order."
+    },
+    {
+      "question": "What is the worst-case time complexity in an unbalanced BST?",
+      "options": ["O(n)", "O(log n)", "O(1)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "Tree could look like a linked list.",
+      "explanation": "If BST is skewed (like a linked list), searching will require checking all nodes, hence O(n)."
+    },
+    {
+      "question": "Which operation is NOT commonly supported in BST?",
+      "options": ["Random Access", "Insertion", "Deletion", "Search"],
+      "answer": "Random Access",
+      "hint": "There's no index in BST.",
+      "explanation": "BST does not support random access by index like arrays. You must traverse to find elements."
+    },
+    {
+      "question": "What is the time complexity of finding the minimum value in a BST?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the minimum value, so it's O(n)."
+    },
+    {
+      "question": "What is the time complexity of finding the maximum value in a BST?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the maximum value, so it's O(n)."
+    },
+    {
+      "question": "What is the space complexity of a binary search tree with n nodes?",
+      "options": ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+      "answer": "O(n)",
+      "hint": "Each node takes space.",
+      "explanation": "A binary search tree with n nodes has a space complexity of O(n) as each node takes up space in the tree."
+    },
+    {
+      "question": "What is the time complexity of level order traversal of a binary search tree?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+      "answer": "O(n)",
+      "hint": "You visit each node once.",
+      "explanation": "Level order traversal visits each node once, resulting in O(n) time complexity."
+    },
+    {
+      "question": "Which of the following is true about a binary search tree?",
+      "options": ["Each node has at most two children", "It's always balanced", "It's a complete graph", "None of the above"],
+      "answer": "Each node has at most two children",
+      "hint": "Think about the structure of the tree.",
+      "explanation": "In a binary search tree, each node has at most two children, referred to as the left and right child."
+    },
+    {
+      "question": "What is the time complexity of finding the lowest common ancestor (LCA) of two nodes in a binary search tree?",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the LCA, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is a method of a binary search tree in Java?",
+      "options": ["add()", "remove()", "find()", "All of the above"],
+      "answer": "All of the above",
+      "hint": "Think about tree operations.",
+      "explanation": "All listed options are methods of a binary search tree in Java."
+    },
+    {
+      "question": "What is the time complexity of searching for a value in a binary search tree?",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "answer": "O(n)",
+      "hint": "You might have to look at each node.",
+      "explanation": "In the worst case, you might have to look at each node to find the value, so it's O(n)."
+    },
+    {
+      "question": "Which of the following is not a valid operation on a binary search tree?",
+      "options": ["Add", "Remove", "Find", "All of the above are valid"],
+      "answer": "All of the above are valid",
+      "hint": "Think about tree functionality.",
+      "explanation": "All listed options are valid operations for a binary search tree."
+    },
+    {
+      "question": "What is the result of removing a node with two children in a binary search tree?",
+      "options": ["The tree becomes unbalanced", "The node is replaced by its inorder successor", "The node is deleted and the tree shrinks", "None of the above"],
+      "answer": "The node is replaced by its inorder successor",
+      "hint": "Think about how to maintain the binary search tree property.",
+      "explanation": "When removing a node with two children, it's common to replace the node with its inorder successor to maintain the binary search tree property."
+    },
+    {
+      "question": "Which of the following is a characteristic of a depth-first search (DFS) on a tree?",
+      "options": ["Uses a stack", "Uses a queue", "Visits nodes in layers", "Both uses a stack and visits nodes in layers"],
+      "answer": "Both uses a stack and visits nodes in layers",
+      "hint": "Think about the order of node visits.",
+      "explanation": "DFS uses a stack to remember the next vertex to visit and goes as deep as possible down one path before backing up."
+    }
+  ]
+}
