@@ -116,14 +116,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
----
-
-## 🧑‍💻 Developer
-
-**👨‍💻 Developer**: Abhishek Kumar
-🎓 AI & Data Science Enthusiast
-📌 Streamlit Expert | GenAI Engineer in Progress
-📧 \[abhiydv23096@gmail.com] 
 
 ---
 
@@ -132,6 +124,68 @@ streamlit run app.py
 > “DSA\_CodeMastery Club.AI isn't just another learning tool — it's a complete DSA ecosystem. Powered by AI, gamified progress tracking, and community collaboration — all in one place.”
 
 Give it a ⭐ if you love it, contribute if you can, and share with fellow coders!
+
+---
+
+## ⚙️ Simple App Setup Guide
+
+### 📁 1. **Clone the Repository**
+
+```bash
+git clonehttps://github.com/abhishekkumar62000/DSA_CodeMastery-Club.AI.git
+cd DSA_CodeMastery-Club.AI
+```
+
+---
+
+### 📦 2. **Install Dependencies**
+
+Make sure you have Python installed (version 3.8+ recommended). Then run:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### ▶️ 3. **Run the App**
+
+Start the Streamlit app with:
+
+```bash
+streamlit run app.py
+```
+
+---
+
+### 🧪 4. **Test Locally**
+
+Open your browser and go to:
+`http://localhost:8501`
+
+---
+
+### ✅ 5. **Folder Structure (Basic)**
+
+```
+DSA_CodeMastery-Club.AI/
+│
+├── app.py                    # Main Streamlit app
+├── requirements.txt          # Python dependencies
+├── data/                     # JSON files for user/auth/progress
+├── modules/                  # Python scripts for features (e.g., quiz, scheduler)
+├── assets/                   # Images, CSS, animations
+└── utils/                    # Utility functions (email, charts, AI, etc.)
+```
+
+---
+## 🧑‍💻 Developer
+
+**👨‍💻 Developer**: Abhishek Kumar
+🎓 AI & Data Science Enthusiast
+📌 Streamlit Expert | GenAI Engineer in Progress
+📧 \[abhiydv23096@gmail.com] 
+
 
 ---
 
